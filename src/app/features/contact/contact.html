@@ -1,0 +1,40 @@
+<app-page-header eyebrow="Contact" title="Cuentanos que duda tienes" crumb="Contact" />
+<section class="mx-auto grid max-w-7xl gap-8 px-4 py-12 md:grid-cols-2">
+  <div class="space-y-4">
+    <article class="rounded-2xl bg-white p-6 shadow"><h3 class="font-display font-semibold text-brand-dark">Email</h3><p class="text-sm text-brand-body">espaciosdfr@gmail.com</p></article>
+    <article class="rounded-2xl bg-white p-6 shadow"><h3 class="font-display font-semibold text-brand-dark">WhatsApp</h3><a [href]="whatsappBase" target="_blank" rel="noopener" class="text-sm text-brand-brown hover:underline">https://wa.me/573014667781</a></article>
+    <article class="rounded-2xl bg-white p-6 shadow"><h3 class="font-display font-semibold text-brand-dark">Redes</h3><p class="text-sm"><a href="https://www.facebook.com/share/1PchYALeRP/" target="_blank" rel="noopener" class="text-brand-brown hover:underline">Facebook</a> · <a href="https://www.instagram.com/espaciosdfr.barranquilla/" target="_blank" rel="noopener" class="text-brand-brown hover:underline">Instagram</a></p><p class="mt-1 text-sm text-brand-body">Barranquilla</p></article>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="submit()" class="rounded-2xl bg-white p-6 shadow" novalidate>
+    <div class="space-y-4">
+      <div>
+        <label for="nombre" class="text-sm font-semibold text-brand-dark">Nombre</label>
+        <input id="nombre" formControlName="nombre" class="mt-1 w-full rounded border px-3 py-2" [attr.aria-invalid]="form.controls.nombre.invalid && form.controls.nombre.touched" />
+        @if (form.controls.nombre.invalid && form.controls.nombre.touched) { <p class="mt-1 text-xs text-red-600">Nombre mínimo 3 letras.</p> }
+      </div>
+      <div>
+        <label for="telefono" class="text-sm font-semibold text-brand-dark">Teléfono</label>
+        <input id="telefono" formControlName="telefono" class="mt-1 w-full rounded border px-3 py-2" [attr.aria-invalid]="form.controls.telefono.invalid && form.controls.telefono.touched" />
+        @if (form.controls.telefono.invalid && form.controls.telefono.touched) { <p class="mt-1 text-xs text-red-600">Teléfono 7-15 dígitos.</p> }
+      </div>
+      <div>
+        <label for="tipo" class="text-sm font-semibold text-brand-dark">Tipo de proyecto</label>
+        <select id="tipo" formControlName="tipo" class="mt-1 w-full rounded border px-3 py-2">
+          <option value="">Selecciona…</option>
+          <option>Fabricación a medida</option>
+          <option>Restauración / Retapizado</option>
+          <option>Cortinería</option>
+          <option>Otro</option>
+        </select>
+        @if (form.controls.tipo.invalid && form.controls.tipo.touched) { <p class="mt-1 text-xs text-red-600">Elige un tipo.</p> }
+      </div>
+      <div>
+        <label for="mensaje" class="text-sm font-semibold text-brand-dark">Mensaje</label>
+        <textarea id="mensaje" formControlName="mensaje" rows="4" class="mt-1 w-full rounded border px-3 py-2"></textarea>
+        @if (form.controls.mensaje.invalid && form.controls.mensaje.touched) { <p class="mt-1 text-xs text-red-600">Mensaje mínimo 10 caracteres.</p> }
+      </div>
+      <button type="submit" class="w-full rounded-full bg-brand-accent px-8 py-3 font-semibold text-white hover:bg-brand-accent-dark">Enviar Mensaje</button>
+      @if (sent()) { <p class="text-center text-sm text-green-700">¡Listo! Abrimos WhatsApp con tu mensaje.</p> }
+    </div>
+  </form>
+</section>

@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  --color-brand-dark: #212121;
+  --color-brand-brown: #5aadfd;
+  --color-brand-beige: #f4faec;
+  --color-brand-accent: #5aadfd;
+  --color-brand-accent-dark: #3f8fd1;
+  --color-brand-body: #656565;
+  --color-brand-bg: #f3f3f3;
+  --color-brand-peach: #F0EDE5;
+  --font-display: "Poppins", system-ui, sans-serif;
+  --font-body: "Jost", system-ui, sans-serif;
+  --font-brand: Helvetica, Arial, "Segoe UI", sans-serif;
+  --animate-kenburns: kenburns 7s ease-out forwards;
+  --animate-progress: progress 6s linear forwards;
+  --animate-fade-up: fade-up 0.7s ease-out forwards;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-body);
+}
+
+@keyframes kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+@keyframes progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}

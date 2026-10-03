@@ -1,0 +1,55 @@
+<header class="sticky top-0 z-50 border-b border-brand-dark/10 bg-brand-peach/95 text-brand-dark shadow-md backdrop-blur">
+  <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3">
+    <a routerLink="/" (click)="closeMenu()" class="flex items-center gap-2.5" aria-label="Espacios DFR inicio">
+      <img src="/img/logo-navbar.webp" alt="Logo Espacios DFR" width="40" height="40" class="h-10 w-10 rounded-full object-cover ring-2 ring-brand-dark/15" />
+      <span class="font-brand text-xl font-bold tracking-wide">ESPACIOS<span class="text-brand-accent-dark">DFR</span></span>
+    </a>
+
+    <nav class="hidden items-center gap-6 text-sm font-medium md:flex" aria-label="Principal">
+      <a routerLink="/" routerLinkActive="text-brand-accent-dark underline underline-offset-4" [routerLinkActiveOptions]="{ exact: true }" class="hover:text-brand-accent-dark">Home</a>
+      <a routerLink="/about" routerLinkActive="text-brand-accent-dark underline underline-offset-4" class="hover:text-brand-accent-dark">About</a>
+      <a routerLink="/blog" routerLinkActive="text-brand-accent-dark underline underline-offset-4" class="hover:text-brand-accent-dark">Reciente</a>
+      <a routerLink="/contact" routerLinkActive="text-brand-accent-dark underline underline-offset-4" class="hover:text-brand-accent-dark">Contact</a>
+    </nav>
+
+    <div class="hidden items-center gap-2 md:flex">
+      <a href="https://www.facebook.com/share/1PchYALeRP/" target="_blank" rel="noopener" aria-label="Facebook"
+        class="flex h-9 w-9 items-center justify-center rounded-full border border-brand-dark/20 text-brand-dark/70 transition hover:border-brand-accent-dark hover:bg-brand-accent-dark hover:text-white">
+        <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1v2.6H7.7V14h2.7v8h3.1Z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/espaciosdfr.barranquilla/" target="_blank" rel="noopener" aria-label="Instagram"
+        class="flex h-9 w-9 items-center justify-center rounded-full border border-brand-dark/20 text-brand-dark/70 transition hover:border-brand-accent-dark hover:bg-brand-accent-dark hover:text-white">
+        <svg viewBox="0 0 24 24" class="h-4 w-4 fill-none stroke-current stroke-2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.2" class="fill-current stroke-none"/></svg>
+      </a>
+      <a [href]="whatsapp" target="_blank" rel="noopener" class="rounded-full bg-brand-accent px-5 py-2 text-sm font-semibold text-white shadow transition hover:scale-105 hover:bg-brand-accent-dark">
+        ¡COTIZA YA!
+      </a>
+    </div>
+
+    <button type="button" (click)="toggleMenu()" class="rounded p-2 hover:bg-brand-dark/10 md:hidden" aria-label="Abrir menú">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+
+  @if (menuOpen()) {
+    <nav class="border-t border-brand-dark/10 px-4 py-3 md:hidden" aria-label="Móvil">
+      <div class="flex flex-col gap-3 text-sm font-medium">
+        <a routerLink="/" (click)="closeMenu()">Home</a>
+        <a routerLink="/about" (click)="closeMenu()">About</a>
+        <a routerLink="/blog" (click)="closeMenu()">Reciente</a>
+        <a routerLink="/contact" (click)="closeMenu()">Contact</a>
+        <div class="mt-2 flex items-center gap-2">
+          <a href="https://www.facebook.com/share/1PchYALeRP/" target="_blank" rel="noopener" aria-label="Facebook"
+            class="flex h-9 w-9 items-center justify-center rounded-full border border-brand-dark/20 text-brand-dark/70">
+            <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1v2.6H7.7V14h2.7v8h3.1Z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/espaciosdfr.barranquilla/" target="_blank" rel="noopener" aria-label="Instagram"
+            class="flex h-9 w-9 items-center justify-center rounded-full border border-brand-dark/20 text-brand-dark/70">
+            <svg viewBox="0 0 24 24" class="h-4 w-4 fill-none stroke-current stroke-2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.2" class="fill-current stroke-none"/></svg>
+          </a>
+          <a [href]="whatsapp" target="_blank" rel="noopener" class="flex-1 rounded-full bg-brand-accent px-5 py-2 text-center font-semibold text-white">¡COTIZA YA!</a>
+        </div>
+      </div>
+    </nav>
+  }
+</header>
