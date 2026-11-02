@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
-:root {
+@theme {
   --color-brand-dark: #212121;
   --color-brand-brown: #5aadfd;
-  --color-brand-beige: #f4faec;
+  --color-brand-beige: hwb(86 93% 2%);
   --color-brand-accent: #5aadfd;
   --color-brand-accent-dark: #3f8fd1;
   --color-brand-body: #656565;
